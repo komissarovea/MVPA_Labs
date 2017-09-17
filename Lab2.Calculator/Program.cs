@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Lab2Calculator
+namespace Lab2.Calculator
 {
     class Program
     {

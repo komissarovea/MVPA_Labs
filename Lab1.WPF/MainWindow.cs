@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Lab1WPF
+namespace Lab1.WPF
 {
     class MainWindow : Window
     {

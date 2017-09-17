@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace Lab2Calculator
+namespace Lab2.Calculator
 {
     class MainWindow : Window
     {

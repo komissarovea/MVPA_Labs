@@ -4,7 +4,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace Lab2Controls
+namespace Lab2.Controls
 {
     // Variant 11
     class MainWindow : Window

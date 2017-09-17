@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace Lab1WindowsForms
+namespace Lab1.WindowsForms
 {
     sealed class MainForm : Form
     {

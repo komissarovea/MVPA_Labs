@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D17838B2-6BBD-4B7F-BB3F-15B5AC56E935}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab1WindowsForms</RootNamespace>
-    <AssemblyName>Lab1WindowsForms</AssemblyName>
+    <RootNamespace>Lab1.WindowsForms</RootNamespace>
+    <AssemblyName>Lab1.WindowsForms</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Lab1WindowsForms.Program</StartupObject>
+    <StartupObject>Lab1.WindowsForms.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />

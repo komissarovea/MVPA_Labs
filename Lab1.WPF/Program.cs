@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Lab1WPF
+namespace Lab1.WPF
 {
     class Program
     {

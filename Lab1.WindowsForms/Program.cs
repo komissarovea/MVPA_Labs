@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace Lab1WindowsForms
+namespace Lab1.WindowsForms
 {
     class Program
     {

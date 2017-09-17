@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{84163439-16A6-437B-ADDB-0A32F86C388E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Lab1WPF</RootNamespace>
-    <AssemblyName>Lab1WPF</AssemblyName>
+    <RootNamespace>Lab1.WPF</RootNamespace>
+    <AssemblyName>Lab1.WPF</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,7 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>Lab1WPF.Program</StartupObject>
+    <StartupObject>Lab1.WPF.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />

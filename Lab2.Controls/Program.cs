@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace Lab2Controls
+namespace Lab2.Controls
 {
     class Program
     {
