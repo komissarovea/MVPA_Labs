@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Lab4.GraphicEditor.CrossControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Width="75" Height="75" Background="Transparent">
+    <Viewbox >
+        <Path Fill="#FFCBFEFE" Stroke="Black" StrokeThickness="2" Data="M0,0 L170,-30 L200,-200 L230,-30 L400,0 L230,30 L200,200 L170,30 z" Stretch="Fill">
+            <!--<Path.Data>
+            <PathGeometry>
+                <PathFigure StartPoint="0, 0" IsFilled="True" IsClosed="True">
+                    <LineSegment Point="170,-30"/>
+                    <LineSegment Point="200,-200"/>
+                    <LineSegment Point="230,-30"/>
+                    <LineSegment Point="400,0"/>
+                    <LineSegment Point="230,30"/>
+                    <LineSegment Point="200,200"/>
+                    <LineSegment Point="170,30"/>
+                </PathFigure>
+            </PathGeometry>
+        </Path.Data>-->
+        </Path>
+    </Viewbox>
+</UserControl>

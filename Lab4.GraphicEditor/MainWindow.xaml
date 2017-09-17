@@ -1,0 +1,40 @@
+﻿<Window x:Class="Lab4.GraphicEditor.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       Title="Graphic Editor" Height="400" Width="525" 
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="File">
+                <MenuItem x:Name="miNew" Header="New" Click="miNew_Click"/>
+                <MenuItem x:Name="miOpen" Header="Open" Click="miOpen_Click"/>
+                <MenuItem x:Name="miSave" Header="Save" Click="miSave_Click"/>
+                <Separator/>
+                <MenuItem x:Name="miClose" Header="Close" Click="miClose_Click"/>
+            </MenuItem>
+            <MenuItem Header="Edit">
+                <MenuItem x:Name="miSettings" Header="Settings" Click="miSettings_Click" />
+                <!--<MenuItem Header="Cut"/>
+                <MenuItem Header="Copy"/>
+                <MenuItem Header="Paste"/>-->
+            </MenuItem>
+            <MenuItem Header="Help">
+                <MenuItem x:Name="miAbout" Header="About" Click="miAbout_Click"/>
+            </MenuItem>
+        </Menu>
+        <ToolBar Margin="-2,0,0,0" ToolBarTray.IsLocked="True"  Grid.Row="1" IsEnabled="True" >
+            <Button Click="miSettings_Click">Settings</Button>
+            <Button Click="miAbout_Click">About</Button>
+        </ToolBar>
+        <Canvas x:Name="drawingCanvas" Background="White" Grid.Row="2" MouseMove="drawingCanvas_MouseMove" MouseLeftButtonDown="drawingCanvas_MouseLeftButtonDown"/>
+        <StatusBar Grid.Row="3" Height="22" HorizontalContentAlignment="Right" FlowDirection="RightToLeft">
+            <StatusBarItem x:Name="sbiPosition" Content="x:0, y:0"/>
+        </StatusBar>
+    </Grid>
+</Window>
