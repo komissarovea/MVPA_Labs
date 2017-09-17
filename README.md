@@ -1,2 +1,2 @@
 # MVPA_Labs
-IIT MVPA OOP Labs
+Means of visual programming of applications - BSUIR IIT Labs
