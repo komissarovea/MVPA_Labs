@@ -1,0 +1,23 @@
+﻿<Window x:Class="Lab5.Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+       xmlns:controlLib="clr-namespace:Lab5.HippodromeLib;assembly=Lab5.HippodromeLib" 
+        Title="MainWindow">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="105"/>
+            <Setter Property="Height" Value="33"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <!--<Setter Property=""-->
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <controlLib:HippodromeControl x:Name="hippodromeControl1" HorseLeftClick="horseLeftClick" HorseRightClick="horseRightClick"/>
+        <controlLib:HippodromeControl x:Name="hippodromeControl2" HorseLeftClick="horseLeftClick" HorseRightClick="horseRightClick"/>
+        <Ellipse Width="7" Height="7" Fill="Black"></Ellipse>
+        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" RenderTransformOrigin="1.356,-0.516" Margin="391,237,343,251">(0,0)</TextBlock>
+        <Button x:Name="btnStart" Margin="0,12,12,0" Click="btnStart_Click" >Start</Button>
+        <Button x:Name="btnStop" Margin="0,57,12,0" Click="btnStop_Click" IsEnabled="False">Stop</Button>
+    </Grid>
+</Window>
