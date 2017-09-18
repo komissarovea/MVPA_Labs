@@ -1,0 +1,12 @@
+﻿<Window x:Class="Lab6.Integral.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
+        Title="Разработка многопоточных приложений" Height="350" Width="525">
+    <Grid>
+        <TextBlock VerticalAlignment="Top">Вариант 11 - sin(x)dx</TextBlock>
+        <Label x:Name="labelRes" Content="Label" HorizontalAlignment="Left" Margin="87,150,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="77,65,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+        <Button x:Name="btn2" Content="Button" HorizontalAlignment="Left" Margin="228,65,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="21" Margin="77,214,0,0" VerticalAlignment="Top" Width="318"/>
+    </Grid>
+</Window>
