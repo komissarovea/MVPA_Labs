@@ -3,10 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"       
         Title="Разработка многопоточных приложений" Height="350" Width="525">
     <Grid>
-        <TextBlock VerticalAlignment="Top">Вариант 11 - sin(x)dx</TextBlock>
-        <Label x:Name="labelRes" Content="Label" HorizontalAlignment="Left" Margin="87,150,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="btn" Content="Button" HorizontalAlignment="Left" Margin="77,65,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-        <Button x:Name="btn2" Content="Button" HorizontalAlignment="Left" Margin="228,65,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1"/>
+        <TextBlock VerticalAlignment="Top" Margin="10">Вариант 11 - sin(x)dx</TextBlock>
+        <Label x:Name="lbResult" Content="Результат:" HorizontalAlignment="Left" Margin="77,240,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnSettings" Content="Параметры интегрирования" HorizontalAlignment="Left" Margin="77,65,0,0" VerticalAlignment="Top" Width="172" Click="btnSettings_Click"/>
+        <Button x:Name="btnStart" Content="Старт" HorizontalAlignment="Left" Margin="320,65,0,0" VerticalAlignment="Top" Width="75" Click="btnStart_Click"/>
         <ProgressBar x:Name="progressBar1" HorizontalAlignment="Left" Height="21" Margin="77,214,0,0" VerticalAlignment="Top" Width="318"/>
+        <TextBlock x:Name="txtSettings" VerticalAlignment="Top" Margin="10,98,10,0" Height="99"/>
     </Grid>
 </Window>
