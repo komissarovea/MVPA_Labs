@@ -40,7 +40,7 @@ namespace Lab3.AutoDAL
                 else
                     _cars = new List<Car>()
                        {
-                           new Car() { Id = 1, Firm = "BMW", Make = "X5", MaxSpeed = 1800, Price = 70000, Year = 2014 },
+                           new Car() { Id = 1, Firm = "BMW", Make = "X5", MaxSpeed = 180, Price = 70000, Year = 2014 },
                            new Car() { Id = 2, Firm = "Audi", Make = "TT", MaxSpeed = 190, Price = 90000, Year = 2012 },
                            new Car() { Id = 3, Firm = "Volkswagen", Make = "Tiguan", MaxSpeed = 170, Price = 80000, Year = 2013 },
                            new Car() { Id = 4, Firm = "Renault", Make = "Logan", MaxSpeed = 160, Price = 10000, Year = 2015 },

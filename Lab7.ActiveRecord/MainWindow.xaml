@@ -1,9 +1,90 @@
 ﻿<Window x:Class="Lab7.ActiveRecord.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        DataContext="{Binding Main, Source={StaticResource Locator}}"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+        xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
+        DataContext="{Binding Path=Main, Source={StaticResource Locator}}"
+        x:Name="mainWindow" Title="Cars" Height="350" Width="525"
+        WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Grid.ColumnSpan" Value="10"/>
+            <Setter Property="Grid.RowSpan" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Width" Value="75"/>
+        </Style>
+    </Window.Resources>
     <Grid>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="73,82,0,0" TextWrapping="Wrap" Text="{Binding Path=Msg}" VerticalAlignment="Top" Width="120"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <Grid x:Name="filterGrid" Grid.ColumnSpan="10" Height="40" Visibility="Collapsed">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Label Width="Auto">Filter:</Label>
+            <ComboBox x:Name="cmbFilter" Grid.Column="1" SelectedIndex="0" VerticalAlignment="Center">
+                <ComboBoxItem>None</ComboBoxItem>
+                <ComboBoxItem>Firm</ComboBoxItem>
+                <ComboBoxItem>Make</ComboBoxItem>
+                <ComboBoxItem>Year</ComboBoxItem>
+                <ComboBoxItem>Price</ComboBoxItem>
+                <ComboBoxItem>Max speed</ComboBoxItem>
+            </ComboBox>
+            <TextBox x:Name="txtFilter" Grid.Column="2" IsReadOnly="False" />
+        </Grid>
+        <ListBox x:Name="lstCars" Grid.Row="1" Margin="0,0,4,0" ItemsSource="{Binding Path=Cars}" BorderThickness="0"/>
+        <GridSplitter Width="5" Grid.Row="1" Grid.RowSpan="2"></GridSplitter>
+        <Grid x:Name="detatilsGrid" Grid.Column="1" Grid.Row="1"
+              DataContext="{Binding ElementName=lstCars, Path=SelectedItem}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Label Grid.Row="0" >Firm:</Label>
+            <Label Grid.Row="1" >Make:</Label>
+            <Label Grid.Row="2" >Year:</Label>
+            <Label Grid.Row="3" >Price:</Label>
+            <Label Grid.Row="4" >Max speed:</Label>
+            <TextBox Grid.Row="0" Text="{Binding Firm}"/>
+            <TextBox Grid.Row="1" Text="{Binding Make}"/>
+            <TextBox Grid.Row="2" Text="{Binding Year}"/>
+            <TextBox Grid.Row="3" Text="{Binding Price}"/>
+            <TextBox Grid.Row="4" Text="{Binding MaxSpeed}"/>
+        </Grid>
+        <Button Margin="10,10,100,10" Command="{Binding Path=AddCommand}">Add New</Button>
+        <Button x:Name="btnClose" Margin="10" Content="Close">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <ei:CallMethodAction TargetObject="{Binding ElementName=mainWindow}" MethodName="Close"/>
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </Grid>
 </Window>

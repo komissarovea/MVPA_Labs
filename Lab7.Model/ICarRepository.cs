@@ -18,11 +18,5 @@ namespace Lab7.Model
         /// </summary>
         /// <param name="car"></param>
         void AddCar(Car car);
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="cars"></param>
-        void SaveCars(IEnumerable<Car> cars);
     }
 }

@@ -22,6 +22,6 @@ namespace Lab7.ActiveRecord
         public MainWindow()
         {
             InitializeComponent();
-        }
+        }        
     }
 }
