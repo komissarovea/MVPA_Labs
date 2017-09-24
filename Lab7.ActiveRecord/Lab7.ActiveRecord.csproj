@@ -104,5 +104,15 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lab7.DAL\Lab7.DAL.csproj">
+      <Project>{8dfa2eb9-1e70-4ce0-93a8-4a577850291a}</Project>
+      <Name>Lab7.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lab7.Model\Lab7.Model.csproj">
+      <Project>{988ad14e-47fb-4e7b-919d-c9dded7a581d}</Project>
+      <Name>Lab7.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

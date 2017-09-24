@@ -1,4 +1,5 @@
 using GalaSoft.MvvmLight;
+using Lab7.Model;
 
 namespace Lab7.ActiveRecord.ViewModel
 {
@@ -27,7 +28,7 @@ namespace Lab7.ActiveRecord.ViewModel
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(ICarRepository repository)
         {
             Msg = "Message";
             ////if (IsInDesignMode)

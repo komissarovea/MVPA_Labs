@@ -14,6 +14,8 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using Lab7.DAL;
+using Lab7.Model;
 using Microsoft.Practices.ServiceLocation;
 
 namespace Lab7.ActiveRecord.ViewModel
@@ -41,7 +43,7 @@ namespace Lab7.ActiveRecord.ViewModel
             ////    // Create run time view services and models
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
-
+            SimpleIoc.Default.Register<ICarRepository, CarRepository>();
             SimpleIoc.Default.Register<MainViewModel>();
         }
 
