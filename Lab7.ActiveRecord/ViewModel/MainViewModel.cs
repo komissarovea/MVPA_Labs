@@ -21,6 +21,7 @@ namespace Lab7.ActiveRecord.ViewModel
     public class MainViewModel : ViewModelBase
     {
         private string _message;
+        private ICarRepository _repository;
 
         public string Message
         {
@@ -38,26 +39,29 @@ namespace Lab7.ActiveRecord.ViewModel
         public MainViewModel(ICarRepository repository)
         {
             ////if (IsInDesignMode)
-            Message = "Hello!!!";
-            if (repository != null)
+
+            _message = "Hello!!!";
+            _repository = repository;
+
+            if (_repository != null)
             {
-                this.Cars = new ObservableCollection<Car>(repository.GetCars());
+                this.Cars = new ObservableCollection<Car>(_repository.GetCars());
                 this.AddCommand = new RelayCommand(() =>
                 {
-                    Car car = new Car()
+                    AddNewDialog dialog = new AddNewDialog()
                     {
-                        Firm = "Firm1",
-                        Make = "Make1"
+                        Owner = Application.Current.MainWindow,
+                        WindowStartupLocation = WindowStartupLocation.CenterOwner
                     };
-                    //repository.AddCar(car);
-                    this.Cars.Add(car);
+                    if (dialog.ShowDialog() == true)
+                    {
+                        Car car = dialog.NewCar;
+                        car.Id = Cars.Count + 1;
+                        _repository.AddCar(car);
+                        this.Cars.Add(car);
+                    }
                 });
             }
-        }
-
-        public void AddCar()
-        {
-            MessageBox.Show("");
         }
     }
 }
