@@ -84,6 +84,7 @@
     <Compile Include="AddNewDialog.xaml.cs">
       <DependentUpon>AddNewDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Misc\DialogService.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="AddNewDialog.xaml">

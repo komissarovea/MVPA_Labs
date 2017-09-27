@@ -1,6 +1,7 @@
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using Lab7.Model;
+using Microsoft.Practices.ServiceLocation;
 using System.Collections.ObjectModel;
 using System.Windows;
 
@@ -33,6 +34,8 @@ namespace Lab7.ActiveRecord.ViewModel
 
         public RelayCommand AddCommand { get; set; }
 
+        public ICarRepository Repository { get { return _repository; } }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
@@ -48,18 +51,7 @@ namespace Lab7.ActiveRecord.ViewModel
                 this.Cars = new ObservableCollection<Car>(_repository.GetCars());
                 this.AddCommand = new RelayCommand(() =>
                 {
-                    AddNewDialog dialog = new AddNewDialog()
-                    {
-                        Owner = Application.Current.MainWindow,
-                        WindowStartupLocation = WindowStartupLocation.CenterOwner
-                    };
-                    if (dialog.ShowDialog() == true)
-                    {
-                        Car car = dialog.NewCar;
-                        car.Id = Cars.Count + 1;
-                        _repository.AddCar(car);
-                        this.Cars.Add(car);
-                    }
+                    ServiceLocator.Current.GetInstance<DialogService>().ShowAddNewDialog();
                 });
             }
         }

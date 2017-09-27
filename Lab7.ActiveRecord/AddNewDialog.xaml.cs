@@ -57,6 +57,7 @@ namespace Lab7.ActiveRecord
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;
+            this.Close();
         }
 
         #endregion

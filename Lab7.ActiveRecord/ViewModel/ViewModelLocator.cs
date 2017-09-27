@@ -46,6 +46,7 @@ namespace Lab7.ActiveRecord.ViewModel
             ////}
             SimpleIoc.Default.Register<ICarRepository>(() => { return new CarRepository(Settings.Default.ConnectionString); });
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<DialogService>();
         }
 
         public MainViewModel Main
@@ -53,6 +54,14 @@ namespace Lab7.ActiveRecord.ViewModel
             get
             {
                 return ServiceLocator.Current.GetInstance<MainViewModel>();
+            }
+        }
+
+        public DialogService DialogService
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DialogService>();
             }
         }
 
