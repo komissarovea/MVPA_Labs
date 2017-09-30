@@ -19,6 +19,24 @@ namespace Lab8.DAL
                 _carDbContext = new CarDbContext(nameOrConnectionString);
         }
 
+        public void AddCar(Car car)
+        {
+            if (_carDbContext != null && car != null)
+            {
+                _carDbContext.Cars.Add(car);
+                _carDbContext.SaveChanges();
+            }
+        }
+
+        public void AddSpecification(Specification specification)
+        {
+            if (_carDbContext != null && specification != null)
+            {
+                _carDbContext.Specifications.Add(specification);
+                _carDbContext.SaveChanges();
+            }
+        }
+
         public IEnumerable<Car> GetCars()
         {
             IEnumerable<Car> retval = null;
@@ -34,10 +52,8 @@ namespace Lab8.DAL
                         new Car() { Firm = "Renault", Make = "Logan",  Year = 2015 },
                         new Car() { Firm = "Lada", Make = "Vesta",  Year = 2017 },
                     };
-
                     _carDbContext.Cars.AddRange(defaultCars);
                     _carDbContext.SaveChanges();
-
                     var defaultSpecs = new List<Specification>()
                     {
                         new Specification() { MaxSpeed = 180, Price = 70000, Car = defaultCars[0], Name = "Base BMW" },

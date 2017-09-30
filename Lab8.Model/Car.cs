@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
 namespace Lab8.Model
 {
-    public class Car
+    public class Car : INotifyPropertyChanged
     {
         #region Properties
 
@@ -17,16 +19,23 @@ namespace Lab8.Model
 
         public int Year { get; set; }
 
-        public virtual ICollection<Specification> Specifications { get; set; }
+        public virtual ObservableCollection<Specification> Specifications { get; set; }
 
         #endregion
 
         public Car()
         {
-            Specifications = new List<Specification>();
+            Specifications = new ObservableCollection<Specification>();
         }
 
+        public event PropertyChangedEventHandler PropertyChanged;
+
         #region Methods
+
+        public void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         public override string ToString()
         {

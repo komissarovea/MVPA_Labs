@@ -25,7 +25,9 @@ namespace Lab8.Client.ViewModel
 
         public ObservableCollection<Car> Cars { get; set; }
 
-        public RelayCommand AddCommand { get; set; }
+        public RelayCommand AddCarCommand { get; set; }
+
+        public RelayCommand<Car> AddSpecificationCommand { get; set; }
 
         public ICarRepository Repository { get { return _repository; } }
 
@@ -39,9 +41,15 @@ namespace Lab8.Client.ViewModel
             if (_repository != null)
             {
                 this.Cars = new ObservableCollection<Car>(_repository.GetCars() ?? new List<Car>());
-                this.AddCommand = new RelayCommand(() =>
+
+                this.AddCarCommand = new RelayCommand(() =>
                 {
-                    ServiceLocator.Current.GetInstance<DialogService>().ShowAddNewDialog();
+                    ServiceLocator.Current.GetInstance<DialogService>().ShowAddCarDialog();
+                });
+
+                this.AddSpecificationCommand = new RelayCommand<Car>((Car car) =>
+                {
+                    ServiceLocator.Current.GetInstance<DialogService>().ShowAddSpecificationDialog(car);
                 });
             }
         }

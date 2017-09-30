@@ -1,0 +1,45 @@
+﻿<Window x:Class="Lab8.Client.AddCarDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Add Car" Height="220" Width="400">
+    <Window.Resources>
+        <Style TargetType="Label">
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Grid.Column" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Margin" Value="5"/>
+            <!--<Setter Property="IsReadOnly" Value="True"/>-->
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Grid.ColumnSpan" Value="10"/>
+            <Setter Property="Grid.RowSpan" Value="10"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Width" Value="75"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">Firm:</Label>
+        <Label Grid.Row="1">Make:</Label>
+        <Label Grid.Row="2">Year:</Label>
+        <TextBox Grid.Row="0" Name="txtFirm"/>
+        <TextBox Grid.Row="1" Name="txtMake"/>
+        <TextBox Grid.Row="2" Name="txtYear"/>
+
+        <Button x:Name="btnOk" Click="btnOk_Click" Margin="10,10,100,10" IsDefault="True">OK</Button>
+        <Button x:Name="btnCancel" Margin="10" IsCancel="True">Cancel</Button>
+    </Grid>
+</Window>
