@@ -30,7 +30,7 @@ namespace Lab8.Model
 
         public override string ToString()
         {
-            return String.Format("{0}. {1} {2}", this.Id, this.Firm ?? "<Unknown firm>", this.Make ?? "<Unknown make>");
+            return String.Format("{0}. {1} {2} ({3})", this.Id, this.Firm ?? "<Unknown firm>", this.Make ?? "<Unknown make>", this.Year);
         }
 
         #endregion

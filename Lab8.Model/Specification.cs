@@ -27,7 +27,7 @@ namespace Lab8.Model
 
         public override string ToString()
         {
-            return String.Format("{0}. {1}", this.Id, this.Name ?? "<Unknown>");
+            return String.Format("{1} ({2}$, {3}km/h)", this.Id, this.Name ?? "<Unknown>", this.Price, this.MaxSpeed);
         }
 
         #endregion

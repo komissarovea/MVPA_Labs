@@ -52,33 +52,32 @@
             </ComboBox>
             <TextBox x:Name="txtFilter" Grid.Column="2" IsReadOnly="False" />
         </Grid>
-        <ListBox x:Name="lstCars" Grid.Row="1" Margin="0,0,4,0" ItemsSource="{Binding Path=Cars}" BorderThickness="0"/>
-        <GridSplitter Width="5" Grid.Row="1" Grid.RowSpan="2"></GridSplitter>
-        <Grid x:Name="detatilsGrid" Grid.Column="1" Grid.Row="1"
-              DataContext="{Binding ElementName=lstCars, Path=SelectedItem}">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto"/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Label Grid.Row="0" >Firm:</Label>
-            <Label Grid.Row="1" >Make:</Label>
-            <Label Grid.Row="2" >Year:</Label>
-            <Label Grid.Row="3" >Price:</Label>
-            <Label Grid.Row="4" >Max speed:</Label>
-            <TextBox Grid.Row="0" Text="{Binding Firm}"/>
-            <TextBox Grid.Row="1" Text="{Binding Make}"/>
-            <TextBox Grid.Row="2" Text="{Binding Year}"/>
-            <TextBox Grid.Row="3" Text="{Binding Price}"/>
-            <TextBox Grid.Row="4" Text="{Binding MaxSpeed}"/>
-        </Grid>
-        <Button Margin="10,10,100,10" Command="{Binding Path=AddCommand}">Add New</Button>
+        <ListBox x:Name="lstCars" Grid.Row="1" Margin="0,0,4,0" ItemsSource="{Binding Path=Cars}" BorderThickness="0">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="SelectionChanged" >
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </ListBox>
+        <GridSplitter Width="5" Grid.Row="1" Grid.RowSpan="2"/>
+        <Label Grid.Column="1" Grid.Row="1" VerticalAlignment="Top" Margin="0">Specifications:</Label>
+        <ListBox Margin="0,25,10,0" Grid.Column="1" Grid.Row="1" DataContext="{Binding ElementName=lstCars, Path=SelectedItem}" ItemsSource="{Binding Specifications}"/>
+        <Button Margin="10,10,190,10" Command="{Binding Path=AddSpecificationCommand}" CommandParameter="{Binding ElementName=lstCars, Path=SelectedItem}" 
+                Width="110" Content=" Add Specification">
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Grid.ColumnSpan" Value="10"/>
+                    <Setter Property="Grid.RowSpan" Value="10"/>
+                    <Setter Property="HorizontalAlignment" Value="Right"/>
+                    <Setter Property="VerticalAlignment" Value="Bottom"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding ElementName=lstCars, Path=SelectedItem}" Value="{x:Null}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+        <Button Margin="10,10,100,10" Command="{Binding Path=AddCarCommand}">Add Car</Button>
         <Button x:Name="btnClose" Margin="10" Content="Close">
             <i:Interaction.Triggers>
                 <i:EventTrigger EventName="Click">
