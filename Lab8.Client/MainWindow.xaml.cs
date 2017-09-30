@@ -25,25 +25,26 @@ namespace Lab8.Client
         public MainWindow()
         {
             InitializeComponent();
+            //using (CarRepository db = new CarRepository())
+            //{
+            //    List<Car> cars = new List<Car>(db.Cars);
+            //    db.Cars.RemoveRange(cars);
+            //    db.SaveChanges();
+            //    //Car car = new Car() { Firm = "BMW", Make = "X5", Year = 2010 };
+            //    //db.Cars.Add(car);
+            //    //db.SaveChanges();
 
+            //    //Specification specification = new Specification() { Name = "Max2", Price = 100000, MaxSpeed = 200, Car = car };
+            //    //db.Specifications.Add(specification);
+            //    //db.SaveChanges();
 
-            using (CarRepository db = new CarRepository())
-            {
-                //Car car = new Car() { Firm = "BMW", Make = "X5", Year = 2010 };
-                //db.Cars.Add(car);
-                //db.SaveChanges();
+            //    //foreach (var c in db.Cars)
+            //    //    Debug.WriteLine(c);
 
-                //Specification specification = new Specification() { Name = "Max2", Price = 100000, MaxSpeed = 200, Car = car };
-                //db.Specifications.Add(specification);
-                //db.SaveChanges();
-
-                //foreach (var c in db.Cars)
-                //    Debug.WriteLine(c);
-
-                foreach (var sp in db.Specifications)//.Include("Car"))
-                    Debug.WriteLine("{0} - {1}", sp.Name, sp.Car != null ? sp.Car.ToString() : "");
-                Debug.WriteLine("");
-            }
+            //    foreach (var sp in db.Specifications)//.Include("Car"))
+            //        Debug.WriteLine("{0} - {1}", sp.Name, sp.Car != null ? sp.Car.ToString() : "");
+            //    Debug.WriteLine("");
+            //}
         }
     }
 }

@@ -44,7 +44,7 @@ namespace Lab3.AutoDAL
                            new Car() { Id = 2, Firm = "Audi", Make = "TT", MaxSpeed = 190, Price = 90000, Year = 2012 },
                            new Car() { Id = 3, Firm = "Volkswagen", Make = "Tiguan", MaxSpeed = 170, Price = 80000, Year = 2013 },
                            new Car() { Id = 4, Firm = "Renault", Make = "Logan", MaxSpeed = 160, Price = 10000, Year = 2015 },
-                           new Car() { Id = 5, Firm = "Lada", Make = "Vesta", MaxSpeed = 170, Price = 11000, Year = 2017 },
+                           new Car() { Id = 5, Firm = "Lada", Make = "Vesta", MaxSpeed = 150, Price = 11000, Year = 2017 },
                        };
             }
             return _cars;

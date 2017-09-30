@@ -1,4 +1,9 @@
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Command;
+using Lab8.Model;
+using Microsoft.Practices.ServiceLocation;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Lab8.Client.ViewModel
 {
@@ -16,19 +21,29 @@ namespace Lab8.Client.ViewModel
     /// </summary>
     public class MainViewModel : ViewModelBase
     {
+        private ICarRepository _repository;
+
+        public ObservableCollection<Car> Cars { get; set; }
+
+        public RelayCommand AddCommand { get; set; }
+
+        public ICarRepository Repository { get { return _repository; } }
+
         /// <summary>
         /// Initializes a new instance of the MainViewModel class.
         /// </summary>
-        public MainViewModel()
+        public MainViewModel(ICarRepository repository)
         {
-            ////if (IsInDesignMode)
-            ////{
-            ////    // Code runs in Blend --> create design time data.
-            ////}
-            ////else
-            ////{
-            ////    // Code runs "for real"
-            ////}
+            _repository = repository;
+
+            if (_repository != null)
+            {
+                this.Cars = new ObservableCollection<Car>(_repository.GetCars() ?? new List<Car>());
+                this.AddCommand = new RelayCommand(() =>
+                {
+                    ServiceLocator.Current.GetInstance<DialogService>().ShowAddNewDialog();
+                });
+            }
         }
     }
 }

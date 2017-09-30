@@ -5,7 +5,8 @@ using System.Text;
 
 namespace Lab8.Model
 {
-    interface ICarRepository
+    public interface ICarRepository
     {
+        IEnumerable<Car> GetCars();
     }
 }

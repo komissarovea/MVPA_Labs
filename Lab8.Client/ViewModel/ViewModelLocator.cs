@@ -14,7 +14,11 @@
 
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Ioc;
+using Lab8.DAL;
+using Lab8.Model;
 using Microsoft.Practices.ServiceLocation;
+using System;
+using System.Diagnostics;
 
 namespace Lab8.Client.ViewModel
 {
@@ -42,17 +46,36 @@ namespace Lab8.Client.ViewModel
             ////    SimpleIoc.Default.Register<IDataService, DataService>();
             ////}
 
+            SimpleIoc.Default.Register<ICarRepository>(() => { return new CarRepository("CarsDB"); });
             SimpleIoc.Default.Register<MainViewModel>();
+            SimpleIoc.Default.Register<DialogService>();
         }
 
         public MainViewModel Main
         {
             get
             {
-                return ServiceLocator.Current.GetInstance<MainViewModel>();
+                MainViewModel model = null;
+                try
+                {
+                    model = ServiceLocator.Current.GetInstance<MainViewModel>();
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+                return model;
             }
         }
-        
+
+        public DialogService DialogService
+        {
+            get
+            {
+                return ServiceLocator.Current.GetInstance<DialogService>();
+            }
+        }
+
         public static void Cleanup()
         {
             // TODO Clear the ViewModels
