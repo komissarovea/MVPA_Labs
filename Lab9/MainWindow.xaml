@@ -64,8 +64,8 @@ ItemsSource="{Binding Path=Students}">
                                 <ColumnDefinition Width="auto"/>
                                 <ColumnDefinition Width="*"/>
                             </Grid.ColumnDefinitions>
-                            <Image Width="50"
-Source="{Binding Path=FileName}"/>
+                            <Image Width="50" Source="{Binding Path=FileName,
+Converter={StaticResource ImageConverter}}"/>
                             <StackPanel Grid.Column="1" >
                                 <TextBlock Text="{Binding
 Path=FullName}" Margin="30,0,0,0"/>
